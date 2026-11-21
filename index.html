@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101B35">
+  <title>Location Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">📍</div>
+    <div>
+      <h2>Location Finder</h2>
+      <p>Stay connected, share safely.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <p>WELCOME BACK</p>
+      <h1>Find your people.<br><span>Stay connected.</span></h1>
+    </section>
+
+    <section class="map">
+      <div class="map-icon">📍</div>
+      <h3>Your map awaits</h3>
+      <p>Location sharing starts with permission.</p>
+    </section>
+
+    <section class="actions">
+      <button class="primary" onclick="requestLocation()">
+        <span>◎</span> Share My Location
+      </button>
+
+      <button class="secondary" onclick="showRequests()">
+        ♧ Location Requests
+      </button>
+
+      <button class="secondary" onclick="showSMS()">
+        ✉ SMS Assistance
+      </button>
+    </section>
+
+    <footer>
+      Your location. Your permission. Your control.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+  

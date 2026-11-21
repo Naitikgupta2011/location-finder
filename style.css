@@ -1,0 +1,124 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0b1428;
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding: 22px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 42px;
+}
+
+.logo {
+  background: #2864e8;
+  width: 48px;
+  height: 48px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+}
+
+.header h2 {
+  font-size: 19px;
+}
+
+.header p {
+  color: #9eabc3;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.welcome p {
+  color: #6595ff;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 13px;
+}
+
+.welcome h1 {
+  font-size: 30px;
+  line-height: 1.35;
+  margin-bottom: 25px;
+}
+
+.welcome h1 span {
+  color: #6797ff;
+}
+
+.map {
+  height: 230px;
+  border-radius: 25px;
+  background:
+    radial-gradient(circle at 50% 40%, #244a7b, #142a4b 65%, #10203a);
+  border: 1px solid #30466a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 27px;
+}
+
+.map-icon {
+  font-size: 45px;
+  margin-bottom: 13px;
+}
+
+.map h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.map p {
+  font-size: 12px;
+  color: #aebdd4;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 17px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+}
+
+.primary {
+  background: linear-gradient(100deg, #3478ff, #6259ed);
+}
+
+.secondary {
+  background: #182743;
+  border: 1px solid #304363;
+}
+
+button:active {
+  opacity: 0.75;
+}
+
+footer {
+  color: #8191aa;
+  font-size: 11px;
+  text-align: center;
+  margin-top: 35px;
+  padding-bottom: 15px;
+}
