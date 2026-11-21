@@ -4,10 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101B35">
+  <meta name="theme-color" content="#080f20">
   <title>Location Finder</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Leaflet Map -->
+  <link rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
+
 <body>
   <header class="header">
     <div class="logo">📍</div>
@@ -17,38 +25,43 @@
     </div>
   </header>
 
-  <main>
+  <main class="container">
     <section class="welcome">
-      <p>WELCOME BACK</p>
-      <h1>Find your people.<br><span>Stay connected.</span></h1>
+      <p class="eyebrow">YOUR LOCATION</p>
+      <h1>Live Location Map</h1>
+      <p>See your current location in real time.</p>
     </section>
 
-    <section class="map">
-      <div class="map-icon">📍</div>
-      <h3>Your map awaits</h3>
-      <p>Location sharing starts with permission.</p>
+    <section class="map-card">
+      <div class="map-heading">
+        <h3>My Live Map</h3>
+        <span id="status">Not started</span>
+      </div>
+
+      <div id="map"></div>
+
+      <div class="coordinates">
+        <p id="latitude">Latitude: --</p>
+        <p id="longitude">Longitude: --</p>
+        <p id="accuracy">Accuracy: --</p>
+      </div>
     </section>
 
-    <section class="actions">
+    <section class="controls">
       <button class="primary" onclick="requestLocation()">
-        <span>◎</span> Share My Location
+        📍 Start Live Location
       </button>
 
-      <button class="secondary" onclick="showRequests()">
-        ♧ Location Requests
-      </button>
-
-      <button class="secondary" onclick="showSMS()">
-        ✉ SMS Assistance
+      <button class="stop" onclick="stopLocation()">
+        ■ Stop Location
       </button>
     </section>
 
-    <footer>
+    <p class="privacy">
       Your location. Your permission. Your control.
-    </footer>
+    </p>
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
-  
