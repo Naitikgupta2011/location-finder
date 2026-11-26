@@ -3,34 +3,49 @@ let marker = null;
 let accuracyCircle = null;
 let watchId = null;
 let firstLocation = true;
+let followEnabled = true;
 
 function initializeMap() {
   if (map) return;
 
   map = L.map("map").setView([20.5937, 78.9629], 5);
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: "&copy; OpenStreetMap contributors"
-  }).addTo(map);
+  L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      maxZoom: 19,
+      attribution: "&copy; OpenStreetMap contributors"
+    }
+  ).addTo(map);
+}
+
+function toggleFollow() {
+  followEnabled = !followEnabled;
+
+  const button = document.querySelector(".follow");
+
+  button.textContent = followEnabled
+    ? "🧭 Follow Me: ON"
+    : "🧭 Follow Me: OFF";
+
+  if (followEnabled && marker) {
+    map.panTo(marker.getLatLng());
+  }
 }
 
 function requestLocation() {
   if (!navigator.geolocation) {
-    alert("GPS is not supported by this browser.");
+    alert("GPS is not supported.");
     return;
   }
 
-  if (watchId !== null) {
-    return;
-  }
+  if (watchId !== null) return;
 
   initializeMap();
+  firstLocation = true;
 
   document.getElementById("status").textContent =
     "Getting location...";
-
-  firstLocation = true;
 
   watchId = navigator.geolocation.watchPosition(
     function(position) {
@@ -53,7 +68,8 @@ function requestLocation() {
         "● Live location active";
 
       if (!marker) {
-        marker = L.marker(location).addTo(map)
+        marker = L.marker(location)
+          .addTo(map)
           .bindPopup("Your current location");
       } else {
         marker.setLatLng(location);
@@ -74,13 +90,17 @@ function requestLocation() {
         map.setView(location, 16);
         marker.openPopup();
         firstLocation = false;
+      } else if (followEnabled) {
+        map.panTo(location, {
+          animate: true
+        });
       }
     },
 
     function(error) {
       const messages = {
         1: "Location permission denied.",
-        2: "Location unavailable. Check GPS.",
+        2: "Location unavailable.",
         3: "Location request timed out."
       };
 
@@ -111,4 +131,5 @@ function stopLocation() {
 
   document.getElementById("status").textContent =
     "Location stopped";
-        }
+      }
+          
