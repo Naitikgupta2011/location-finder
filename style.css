@@ -124,3 +124,8 @@ button {
   font-size: 12px;
   margin-top: 25px;
 }
+.follow {
+  background: #174b72;
+  color: #ffffff;
+  border: 1px solid #2389ff;
+}
